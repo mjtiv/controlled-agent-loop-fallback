@@ -20,7 +20,7 @@ The goal is not to make the system more complex — but to make it **more reliab
 
 Once your `.env` file is configured and dependencies are installed, run:
 
-```bash
+bash
 python run_role_check_fallback_1.5.py
 
 or
