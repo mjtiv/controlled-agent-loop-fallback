@@ -16,6 +16,19 @@ The goal is not to make the system more complex — but to make it **more reliab
 
 ---
 
+## ▶️ Running the Demo
+
+Once your `.env` file is configured and dependencies are installed, run:
+
+```bash
+python run_role_check_fallback_1.5.py
+
+or
+
+python run_role_check_fallback_1.5.py --input sample_people --output results.json
+
+---
+
 # 🧠 What Changed (High Level)
 
 Compared to the original implementation, the updated script adds:
@@ -168,3 +181,14 @@ The updated version does not change **what** the agent does.
 It improves **how safely and transparently it does it**.
 
 That difference is what moves AI code toward production readiness.
+
+---
+
+## ⚖️ Disclaimer
+
+This repository was created for educational and demonstration purposes only.
+
+Created by **M. Joseph Tomlinson IV**  
+Contact: mjtiv@udel.edu  
+
+Feel free to use, modify, adapt, and build upon this project as you see fit.
