@@ -1,1 +1,173 @@
-# controlled-agent-loop-fallback
+🔄 Controlled Agent Loop — Enhanced Version
+
+This repository demonstrates a minimal “agentic” AI pattern for document classification using an LLM. The original version focused on the core pipeline:
+
+Load documents
+
+Apply rules via prompt
+
+Call the model
+
+Parse structured output
+
+Persist results
+
+The updated version keeps this architecture intact while adding production-style quality control and observability features.
+
+The goal is not to make the system more complex — but to make it more reliable, debuggable, and transparent.
+
+🧠 What Changed (High Level)
+
+Compared to the original implementation, the updated script adds:
+
+✅ Error Handling + Retry Logic
+
+The agent now retries failed API calls once and returns a structured "ERROR" state instead of crashing the pipeline.
+
+This demonstrates a critical real-world principle:
+
+Agent systems must fail safely and continue processing.
+
+✅ Schema Validation
+
+Even though the model is instructed to return structured JSON, the system now verifies required fields programmatically before accepting results.
+
+This enforces a contract boundary between model output and application logic.
+
+✅ Token Usage Visibility
+
+The script now prints token usage per file and aggregates totals across the run.
+
+This provides:
+
+cost awareness
+
+debugging insight
+
+performance visibility
+
+Observability is a key requirement in production LLM systems.
+
+✅ CLI Configurability
+
+Input and output paths are now configurable via command-line arguments:
+
+python run_role_check.py --input data --output results.json
+
+This transforms the script from a one-off demo into a reusable tool.
+
+✅ Structured Failure States
+
+Instead of throwing exceptions, the system returns structured "ERROR" records when processing fails.
+
+This allows downstream analysis to continue without interruption.
+
+🔬 Architectural Philosophy
+
+Importantly, the core agent loop has not changed.
+
+The system still demonstrates the same fundamental pattern:
+
+Document → Rules → Model → Structured Output → Persistence
+
+The improvements focus on:
+
+reliability
+
+validation
+
+observability
+
+reproducibility
+
+These are the elements that distinguish experimental AI code from deployable systems.
+
+📁 Version Comparison
+
+Original Version:
+
+Static paths
+
+Single model call
+
+No retry
+
+No schema verification
+
+No token visibility
+
+Minimal error handling
+
+Enhanced Version:
+
+CLI-driven configuration
+
+Retry + safe failure state
+
+Schema validation layer
+
+Token accounting + totals
+
+Improved debugging output
+
+More robust pipeline behavior
+
+See:
+
+Original: 
+
+run_role_check_1.0
+
+Updated: 
+
+run_role_check_fallback_1.5
+
+🚀 Why This Matters
+
+Many “agentic AI” examples focus on adding more steps or complexity.
+
+This repository instead demonstrates a more important insight:
+
+Real agent systems evolve through reliability and control — not just additional reasoning loops.
+
+The updated version shows how a simple agent can be hardened with:
+
+guardrails
+
+validation
+
+observability
+
+safe execution patterns
+
+🔮 Future Directions (Optional)
+
+Potential extensions include:
+
+multi-step reasoning loops for ambiguous classifications
+
+dynamic rule injection
+
+checkpoint/resume processing
+
+parallel execution with centralized persistence
+
+These are intentionally not implemented yet to preserve clarity.
+
+🧪 Educational Purpose
+
+This project is designed to help engineers understand that:
+
+Agentic AI systems are often just:
+
+deterministic pipelines with controlled LLM boundaries
+
+—not magic autonomous entities.
+
+👍 Summary
+
+The updated version does not change what the agent does.
+
+It improves how safely and transparently it does it.
+
+That difference is what moves AI code toward production readiness.
