@@ -1,0 +1,10 @@
+Name: Priya Nair
+Occupation (as stated): Data Analyst
+Employer: Meridian Health Systems
+Location: Remote (NY)
+
+Job Description:
+Priya analyzes operational datasets to support performance reporting and process improvement. She builds dashboards, writes SQL queries, cleans and standardizes CSV extracts, and produces weekly KPI summaries for leadership. She collaborates with stakeholders to define metrics, validates data quality, and documents data lineage and definitions.
+
+Tools/Equipment:
+SQL, Python, Tableau/Power BI, Excel.
