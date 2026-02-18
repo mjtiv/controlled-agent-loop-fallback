@@ -30,8 +30,10 @@ Place your files in the following layout:
         03_priya_nair_data_analyst.txt
         04_jose_alvarez_chef_trap_overlap.txt
         05_sarah_kim_flight_attendant.txt
-      run_role_check.py
+      run_role_check_fallback_1.5.py
       .env
+
+Note: run_role_check_1.0.py is the original file without fallbacks
 
 ---
 
@@ -64,8 +66,6 @@ python run_role_check_fallback_1.5.py --input sample_people --output results.jso
 ---
 
 # 🧠 What Changed (High Level)
-
-
 
 Compared to the original implementation, the updated script adds:
 
