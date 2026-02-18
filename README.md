@@ -14,13 +14,31 @@ The updated version keeps this architecture intact while adding **production-sty
 
 The goal is not to make the system more complex — but to make it **more reliable, debuggable, and transparent**.
 
+To see the original controlled agent loop — including detailed installation instructions, architecture explanation, and baseline implementation — visit:
+https://github.com/mjtiv/controlled-agent-loop/blob/main/README.md
+
+---
+
+## 🔐 Environment Setup
+
+Create a `.env` file in the root directory:
+
+    OPENAI_API_KEY=your_key_here
+    OPENAI_MODEL=gpt-4o-mini
+
+Using `python-dotenv` keeps credentials out of source control and makes
+the demo clean and portable.
+
+⚠️ Security Note: This repository does not include a .env file.
+API keys are sensitive credentials and must never be committed to source control.
+Create your own .env locally and ensure it is listed in .gitignore.
+
 ---
 
 ## ▶️ Running the Demo
 
 Once your `.env` file is configured and dependencies are installed, run:
 
-bash
 python run_role_check_fallback_1.5.py
 
 or
@@ -70,7 +88,7 @@ Observability is a key requirement in production LLM systems.
 Input and output paths are now configurable via command-line arguments:
 
 ```bash
-python run_role_check.py --input data --output results.json
+run_role_check_fallback_1.5.py --input data --output results.json
 ```
 
 This transforms the script from a one-off demo into a reusable tool.
@@ -86,6 +104,27 @@ This allows downstream analysis to continue without interruption.
 ---
 
 # 🔬 Architectural Philosophy
+
+                +-------------+
+Input Files --> |   Rules /    |
+                |   Prompt     |
+                +------+------+
+                       |
+                       v
+                +-------------+
+                |   LLM Call   |
+                +------+------+
+                       |
+                       v
+                +-------------+
+                |  Validation  |
+                +------+------+
+                       |
+                       v
+                +-------------+
+                | Persistence  |
+                +-------------+
+
 
 Importantly, the **core agent loop has not changed**.
 
@@ -181,6 +220,21 @@ The updated version does not change **what** the agent does.
 It improves **how safely and transparently it does it**.
 
 That difference is what moves AI code toward production readiness.
+
+---
+
+## 🏗️ Production Insight
+
+Many real-world AI systems are not autonomous agents.
+
+They are controlled pipelines with:
+
+- deterministic orchestration
+- bounded model interaction
+- validation layers
+- observable execution
+
+Understanding this distinction is critical for deploying reliable AI software.
 
 ---
 
