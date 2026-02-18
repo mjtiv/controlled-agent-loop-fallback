@@ -105,27 +105,7 @@ This allows downstream analysis to continue without interruption.
 
 # 🔬 Architectural Philosophy
 
-Input Files
-     |
-     v
-+-------------------+
-|   Rules / Prompt   |
-+-------------------+
-          |
-          v
-+-------------------+
-|      LLM Call      |
-+-------------------+
-          |
-          v
-+-------------------+
-|     Validation     |
-+-------------------+
-          |
-          v
-+-------------------+
-|     Persistence    |
-+-------------------+
+Input Files --> Rules / Prompt --> LLM Call --> Validation --> Persistence
 
 Importantly, the **core agent loop has not changed**.
 
