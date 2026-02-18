@@ -19,6 +19,22 @@ https://github.com/mjtiv/controlled-agent-loop/blob/main/README.md
 
 ---
 
+## 📁 Project Structure
+
+Place your files in the following layout:
+
+    people_demo/
+      sample_people/
+        01_amelia_hart_true_baker.txt
+        02_marcus_lee_false_baker_label.txt
+        03_priya_nair_data_analyst.txt
+        04_jose_alvarez_chef_trap_overlap.txt
+        05_sarah_kim_flight_attendant.txt
+      run_role_check.py
+      .env
+
+---
+
 ## 🔐 Environment Setup
 
 Create a `.env` file in the root directory:
@@ -104,8 +120,6 @@ This allows downstream analysis to continue without interruption.
 ---
 
 # 🔬 Architectural Philosophy
-
-Input Files --> Rules / Prompt --> LLM Call --> Validation --> Persistence
 
 Importantly, the **core agent loop has not changed**.
 
